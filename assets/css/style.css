@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: monospace;
     list-style-type: none;
     text-decoration: none;
 }
@@ -11,39 +11,41 @@ body {
     background-color: PapayaWhip;
 }
 
-/* Site heading */
-
 h1 {
     text-align: center;
     background-color: Maroon;
     color: OldLace;
-    padding: 15px;
+    padding: 20px;
 }
 
 h1 > span {
     font-size: 75%;
 }
 
-/* Highest-level navigation */
-
-#categories {
-    margin: 0 auto;
-    display: flex;
-    font-size: 1.5em;
-}
-
-.category-group {
-    flex: auto;
-}
-
-.category {
+#filters {
+    margin-top: 30px;
+    margin-bottom: 20px;
     text-align: center;
-    border: 2px solid Maroon;
-    background-color: OldLace;
-    color: black;
-    padding: 15px 5px;
 }
 
-.category:hover {
-    background-color: LightBlue;
+#ocarina-river {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ocarina-card {
+    width: 160px;
+    margin: 10px;
+    padding: 15px;
+    background-color: Maroon;
+    color: OldLace;
+    border-radius: 10px;
+}
+
+.img-space {
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    border-radius: 10px;
+    margin: 0 auto;
 }

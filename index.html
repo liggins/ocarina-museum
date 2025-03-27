@@ -1,45 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="This digital museum showcases a private ocarina collection, and shares knowledge of the history of the ocarina.">
-        <meta name="keywords" content="ocarina, wind instrument, antique instrument, vessel flute">
 
-        <title>Ocarina Web Museum</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="This digital museum showcases a private ocarina collection, and shares knowledge of the history of the ocarina.">
+    <meta name="keywords" content="ocarina, wind instrument, antique instrument, vessel flute">
 
-        <link rel="icon" href="favicon.png">
-        <link rel="stylesheet" href="assets/css/style.css">
-    </head>
+    <title>Ocarina Web Museum</title>
 
-    <body>
-        <header>
-            <h1><span>The</span> Liggins Ocarina Web Museum</h1>
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
 
-            <nav id="categories">
-                <div class="category-group">
-                    <a href="countries.html">
-                        <div class="category">Countries</div>
-                    </a>
-                    <a href="makers.html">
-                        <div class="category">Makers</div>
-                    </a>
-                </div>
-                <div class="category-group">
-                    <a href="time-periods.html">
-                        <div class="category">Time periods</div>
-                    </a>
-                    <a href="materials.html">
-                        <div class="category">Materials</div>
-                    </a>
-                </div>
-            </nav>
-        </header>
+<body>
+    <header>
+        <h1><span>The</span> Liggins Ocarina Web Museum</h1>
+    </header>
 
-        <main></main>
+    <main>
+        <div id="filters">
+            <label for="countries">Country:</label>
+            <select id="countries" name="countries">
+                <option value="all">All</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Australia">Australia</option>
+                <option value="Austria">Austria</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Chile">Chile</option>
+                <option value="China">China</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Croatia">Croatia</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="France">France</option>
+                <option value="Germany">Germany</option>
+                <option value="Italy">Italy</option>
+                <option value="Japan">Japan</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Moldova">Moldova</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Panama">Panama</option>
+                <option value="Papua New Guinea">Papua New Guinea</option>
+                <option value="Peru">Peru</option>
+                <option value="Romania">Romania</option>
+                <option value="Russia">Russia</option>
+                <option value="Spain">Spain</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="UK">UK</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="USA">USA</option>
+                <option value="Unknown">Unknown</option>
+            </select>
 
-        <footer></footer>
+            <label for="dates">Date:</label>
+            <select id="dates" name="dates">
+                <option value="all">All</option>
+                <option value="Pre-1500 AD">Pre-1500 AD</option>
+                <option value="1853-1919">1853-1919</option>
+                <option value="1920-1959">1920-1959</option>
+                <option value="1960-1999">1960-1999</option>
+                <option value="2000-today">2000-today</option>
+                <option value="Unknown">Unknown</option>
+            </select>
 
-        <script type="module" src="assets/js/script.js"></script>
-    </body>
+            <label for="makers">Maker:</label>
+            <select id="makers" name="makers">
+                <option value="all">All</option>
+            </select>
+
+            <label for="materials">Material:</label>
+            <select id="materials" name="materials">
+                <option value="all">All</option>
+                <option value="Bakelite">Bakelite</option>
+                <option value="Ceramic Slip Cast">Ceramic Slip Cast</option>
+                <option value="Clay">Clay</option>
+                <option value="Coconut">Coconut</option>
+                <option value="Metal">Metal</option>
+                <option value="Plastic">Plastic</option>
+                <option value="Porcelain">Porcelain</option>
+                <option value="Wood">Wood</option>
+                <option value="Unknown">Unknown</option>
+            </select>
+        </div>
+
+        <div id="ocarina-river"></div>
+    </main>
+
+    <footer>
+        <!-- Links to main website and socials -->
+    </footer>
+
+    <script type="module" src="assets/js/script.js"></script>
+</body>
+
 </html>
