@@ -20,11 +20,27 @@
 
 <body>
     <header>
-        <h1><span>The</span> Liggins Ocarina Web Museum</h1>
+        <h1>Liggins Ocarina Collection</h1>
     </header>
 
     <main>
         <div id="filters">
+            <label for="makes">Make:</label>
+            <select id="makes" name="makes">
+                <option value="all">All</option>
+            </select>
+
+            <label for="dates">Date:</label>
+            <select id="dates" name="dates">
+                <option value="all">All</option>
+                <option value="Pre-1500 AD">Pre-1500 AD</option>
+                <option value="1853-1919">1853-1919</option>
+                <option value="1920-1959">1920-1959</option>
+                <option value="1960-1999">1960-1999</option>
+                <option value="2000-today">2000-today</option>
+                <option value="Unknown">Unknown</option>
+            </select>
+
             <label for="countries">Country:</label>
             <select id="countries" name="countries">
                 <option value="all">All</option>
@@ -59,22 +75,6 @@
                 <option value="Ukraine">Ukraine</option>
                 <option value="USA">USA</option>
                 <option value="Unknown">Unknown</option>
-            </select>
-
-            <label for="dates">Date:</label>
-            <select id="dates" name="dates">
-                <option value="all">All</option>
-                <option value="Pre-1500 AD">Pre-1500 AD</option>
-                <option value="1853-1919">1853-1919</option>
-                <option value="1920-1959">1920-1959</option>
-                <option value="1960-1999">1960-1999</option>
-                <option value="2000-today">2000-today</option>
-                <option value="Unknown">Unknown</option>
-            </select>
-
-            <label for="makers">Maker:</label>
-            <select id="makers" name="makers">
-                <option value="all">All</option>
             </select>
 
             <label for="materials">Material:</label>
