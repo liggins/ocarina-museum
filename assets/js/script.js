@@ -10,6 +10,10 @@ window.addEventListener("load", () => {
     const countrySelector = document.getElementById("countries");
     const materialSelector = document.getElementById("materials");
 
+    const ocarinaModal = document.getElementById("ocarina-modal");
+    const info = document.getElementById("info");
+    const closeButton = document.getElementById("close-button");
+
 
     function renderOcarinas() {
 
@@ -60,6 +64,8 @@ window.addEventListener("load", () => {
             moreButton.addEventListener("click", (event) => {
                 let ocarina = ocarinas[event.target.dataset.index];
                 console.log(ocarina);
+                info.textContent = JSON.stringify(ocarina);
+                ocarinaModal.style.display = "block";
             });
         }
     }
@@ -70,5 +76,7 @@ window.addEventListener("load", () => {
     dateSelector.addEventListener("change", renderOcarinas);
     countrySelector.addEventListener("change", renderOcarinas);
     materialSelector.addEventListener("change", renderOcarinas);
+
+    closeButton.addEventListener("click", () => { ocarinaModal.style.display = "none"; });
 
 });
