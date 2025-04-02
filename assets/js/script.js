@@ -3,6 +3,8 @@ import ocarinas from "./database.js";
 
 window.addEventListener("load", () => {
 
+    // Get HTML elements, assign to variables
+
     const ocarinaRiver = document.getElementById("ocarina-river");
 
     const makeSelector = document.getElementById("makes");
@@ -11,10 +13,18 @@ window.addEventListener("load", () => {
     const materialSelector = document.getElementById("materials");
 
     const ocarinaModal = document.getElementById("ocarina-modal");
-    const info = document.getElementById("info");
+    const details = document.getElementById("details");
     const closeButton = document.getElementById("close-button");
 
 
+    /**
+     * Renders all or some ocarina cards, based on current filters.
+     * 
+     * - Reads current dropdown selections
+     * - Clears the river
+     * - For each ocarina that meets the filter conditions, inserts a card into the HTML
+     * - Calls enableModal function
+    */
     function renderOcarinas() {
 
         const selectedMake = makeSelector.value;
@@ -33,8 +43,13 @@ window.addEventListener("load", () => {
             if (matchesMake && matchesDate && matchesCountry && matchesMaterial) {
                 const ocarinaCard = document.createElement("div");
                 ocarinaCard.classList.add("ocarina-card");
+
+                let imgOne = ocarina.images ?
+                    `style="background-image: url('${ocarina.images[0]}'); background-size: contain;"`
+                    : null;
+
                 ocarinaCard.innerHTML = `
-                    <div class="img-space"></div>
+                    <div class="img-space" ${imgOne}></div>
                     <br>
                     <p>
                         <i class="fa-solid fa-hand" title="Make or Origin"></i>
@@ -55,20 +70,67 @@ window.addEventListener("load", () => {
                     <br>
                     <p class="read-more" data-index="${index}"> Read more >> </p>
                 `;
+
                 ocarinaRiver.appendChild(ocarinaCard);
             }
         });
 
+        enableModal();
+    }
+
+
+    /**
+     * ---
+    */
+    function enableModal() {
+
         const moreButtons = document.getElementsByClassName("read-more");
+
         for (let moreButton of moreButtons) {
             moreButton.addEventListener("click", (event) => {
                 let ocarina = ocarinas[event.target.dataset.index];
-                console.log(ocarina);
-                info.textContent = JSON.stringify(ocarina);
+
+                let imgOne = ocarina.images ?
+                    `style="background-image: url('${ocarina.images[0]}'); background-size: contain;"`
+                    : null;
+                let imgTwo = ocarina.images[1] ?
+                    `style="background-image: url('${ocarina.images[1]}'); background-size: contain;"`
+                    : null;
+                let slider = imgTwo ? `<i class="far" style="font-size: 2em;"> &#xf35a; </i>` : "";
+
+                details.innerHTML = `
+                    <div class="img-lg" ${imgOne}></div>
+                    <div class="img-lg" ${imgTwo} hidden></div>
+                    ${slider}
+                    <br><br>
+                    <p>
+                        <i class="fa-solid fa-hand" title="Make or Origin"></i>
+                        ${ocarina.make}
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-timeline" title="Date"></i>
+                        ${ocarina.date}
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-earth-americas" title="Country"></i>
+                        ${ocarina.country}
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-cube" title="Material"></i>
+                        ${ocarina.material}
+                    </p>
+                    <p>${ocarina.description}</p>
+                `;
+
                 ocarinaModal.style.display = "block";
             });
         }
+
+        closeButton.addEventListener("click", () => { ocarinaModal.style.display = "none"; });
     }
+
+
+    // `renderOcarinas()` called upon page load and after any dropdown selections
 
     renderOcarinas();
 
@@ -76,7 +138,5 @@ window.addEventListener("load", () => {
     dateSelector.addEventListener("change", renderOcarinas);
     countrySelector.addEventListener("change", renderOcarinas);
     materialSelector.addEventListener("change", renderOcarinas);
-
-    closeButton.addEventListener("click", () => { ocarinaModal.style.display = "none"; });
 
 });

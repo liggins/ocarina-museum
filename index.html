@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="This digital museum showcases a private ocarina collection, and shares knowledge of the history of the ocarina.">
+    <meta name="description" content="This digital museum showcases a private ocarina collection, sharing knowledge of the history of the ocarina.">
     <meta name="keywords" content="ocarina, wind instrument, antique instrument, vessel flute">
 
     <title>Ocarina Web Museum</title>
 
     <link rel="icon" href="favicon.png">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -25,11 +23,14 @@
 
     <main>
         <div id="filters">
+
+            <!-- "Make" dropdown -->
             <label for="makes">Make:</label>
             <select id="makes" name="makes">
                 <option value="all">All</option>
             </select>
 
+            <!-- "Date" dropdown -->
             <label for="dates">Date:</label>
             <select id="dates" name="dates">
                 <option value="all">All</option>
@@ -41,6 +42,7 @@
                 <option value="Unknown">Unknown</option>
             </select>
 
+            <!-- "Country" dropdown -->
             <label for="countries">Country:</label>
             <select id="countries" name="countries">
                 <option value="all">All</option>
@@ -77,6 +79,7 @@
                 <option value="Unknown">Unknown</option>
             </select>
 
+            <!-- "Material" dropdown -->
             <label for="materials">Material:</label>
             <select id="materials" name="materials">
                 <option value="all">All</option>
@@ -90,22 +93,31 @@
                 <option value="Wood">Wood</option>
                 <option value="Unknown">Unknown</option>
             </select>
+
         </div>
 
+        <!-- Modal area -->
         <div id="ocarina-modal">
             <div id="inner-oc-modal">
-
                 <span id="close-button">&times;</span>
-                <p id="info"></p>
+
+                <div id="details"></div>
 
             </div>
         </div>
 
+        <!-- OCARINA CARDS RENDERED HERE -->
         <div id="ocarina-river"></div>
     </main>
 
     <footer>
-        <!-- Links to main website and socials -->
+        <!-- External links -->
+        <a href="https://www.ocarina.co.uk" target="_blank" aria-label="Go to Ocarina Workshop e-commerce website, opens in new tab">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Ocarina Workshop
+        </a>
+        <a href="https://www.youtube.com/@OcarinaWorkshop/videos" target="_blank" aria-label="Go to Ocarina Workshop YouTube channel, opens in new tab">
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i> @OcarinaWorkshop
+        </a>
     </footer>
 
     <script type="module" src="assets/js/script.js"></script>

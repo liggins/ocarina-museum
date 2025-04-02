@@ -1,3 +1,5 @@
+/* General styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +13,8 @@ body {
     background-color: PapayaWhip;
 }
 
+/* Main heading */
+
 h1 {
     text-align: center;
     background-color: Maroon;
@@ -18,11 +22,15 @@ h1 {
     padding: 20px;
 }
 
+/* Dropdown filters */
+
 #filters {
     margin-top: 30px;
     margin-bottom: 20px;
     text-align: center;
 }
+
+/* OCARINA RIVER & CARDS */
 
 #ocarina-river {
     display: flex;
@@ -41,46 +49,48 @@ h1 {
 .img-space {
     width: 100px;
     height: 100px;
-    background-color: grey;
+    background-color: Grey;
     border-radius: 10px;
     margin: 0 auto;
 }
 
+/* OCARINA MODAL */
 
-/* The Modal (background) */
 #ocarina-modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Sit on top */
     padding-top: 100px;
-    /* Location of the box */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
 }
 
-/* Modal Content */
 #inner-oc-modal {
-    background-color: #fefefe;
+    background-color: Maroon;
     margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
+    padding: 15px;
+    border-radius: 10px;
     width: 80%;
 }
 
-/* The Close Button */
+#details {
+    background-color: PapayaWhip;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.img-lg {
+    width: 300px;
+    height: 300px;
+    background-color: Grey;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
 #close-button {
     color: #aaaaaa;
     float: right;
@@ -93,4 +103,21 @@ h1 {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    height: 50px;
+    padding-top: 20px;
+}
+
+footer > a {
+    color: black;
+    margin: 20px;
+}
+
+footer > a:hover {
+    color: Blue;
 }
