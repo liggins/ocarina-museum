@@ -44,12 +44,8 @@ window.addEventListener("load", () => {
                 const ocarinaCard = document.createElement("div");
                 ocarinaCard.classList.add("ocarina-card");
 
-                let imgOne = ocarina.images ?
-                    `style="background-image: url('${ocarina.images[0]}'); background-size: contain;"`
-                    : null;
-
                 ocarinaCard.innerHTML = `
-                    <div class="img-space" ${imgOne}></div>
+                    <div class="img-space" style="background-image: url('${ocarina.images[0]}'); background-size: contain;"></div>
                     <br>
                     <p>
                         <i class="fa-solid fa-hand" title="Make or Origin"></i>
@@ -90,18 +86,18 @@ window.addEventListener("load", () => {
             moreButton.addEventListener("click", (event) => {
                 let ocarina = ocarinas[event.target.dataset.index];
 
-                let imgOne = ocarina.images ?
-                    `style="background-image: url('${ocarina.images[0]}'); background-size: contain;"`
-                    : null;
-                let imgTwo = ocarina.images[1] ?
-                    `style="background-image: url('${ocarina.images[1]}'); background-size: contain;"`
-                    : null;
-                let slider = imgTwo ? `<i class="far" style="font-size: 2em;"> &#xf35a; </i>` : "";
+                let gallery = "";
+                for (let image of ocarina.images) {
+                    gallery += `<div style="background-image: url('${image}'); background-size: contain;"></div>`;
+                }
 
                 details.innerHTML = `
-                    <div class="img-lg" ${imgOne}></div>
-                    <div class="img-lg" ${imgTwo} hidden></div>
-                    ${slider}
+                    <div class="carousel-container">
+                        <button class="nav-button left">&lt;</button>
+                        <div class="slider">${gallery}</div>
+                        <button class="nav-button right">&gt;</button>
+                    </div>
+
                     <br><br>
                     <p>
                         <i class="fa-solid fa-hand" title="Make or Origin"></i>
@@ -122,7 +118,30 @@ window.addEventListener("load", () => {
                     <p>${ocarina.description}</p>
                 `;
 
+                const slider = document.querySelector(".slider");
+
+                document.querySelector(".left").addEventListener("click", () => {
+                    slider.scrollBy({ left: -slider.clientWidth, behavior: "smooth" });
+                });
+                document.querySelector(".right").addEventListener("click", () => {
+                    slider.scrollBy({ left: slider.clientWidth, behavior: "smooth" });
+                });
+
                 ocarinaModal.style.display = "block";
+
+                const leftButton = document.querySelector(".left");
+                const rightButton = document.querySelector(".right");
+                function updateButtons() {
+                    leftButton.style.visibility = slider.scrollLeft === 0 ? "hidden" : "visible";
+                    rightButton.style.visibility =
+                        slider.scrollLeft + slider.clientWidth >= slider.scrollWidth ? "hidden" : "visible";
+                }
+
+                // Initialize button visibility on page load
+                updateButtons();
+
+                // Check position after scrolling
+                slider.addEventListener("scroll", updateButtons);
             });
         }
 

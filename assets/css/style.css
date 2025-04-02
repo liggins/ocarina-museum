@@ -83,14 +83,6 @@ h1 {
     padding: 15px;
 }
 
-.img-lg {
-    width: 300px;
-    height: 300px;
-    background-color: Grey;
-    border-radius: 10px;
-    margin: 0 auto;
-}
-
 #close-button {
     color: #aaaaaa;
     float: right;
@@ -120,4 +112,55 @@ footer > a {
 
 footer > a:hover {
     color: Blue;
+}
+
+
+.carousel-container {
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.nav-button {
+    border: none;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: auto;
+    font-size: 2em;
+    color: darkgrey;
+}
+
+.slider {
+    width: 300px;
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-radius: 10px;
+}
+
+.slider>div {
+    height: 300px;
+    width: 300px;
+    flex-shrink: 0;
+}
+
+
+@media screen and (max-width: 500px) {
+    .carousel-container {
+        max-width: 70vw;
+    }
+
+    .nav-button {
+        height: 25px;
+        width: 25px;
+    }
+    .slider {
+        width: 150px;
+    }
+
+    .slider>div {
+        width: 150px;
+        height: 150px;
+    }
 }
