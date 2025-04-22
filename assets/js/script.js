@@ -35,10 +35,10 @@ window.addEventListener("load", () => {
         ocarinaRiver.innerHTML = "";
 
         ocarinas.forEach((ocarina, index) => {
-            const matchesMake = selectedMake === "all" || ocarina.make === selectedMake;
-            const matchesDate = selectedDate === "all" || ocarina.date === selectedDate;
-            const matchesCountry = selectedCountry === "all" || ocarina.country === selectedCountry;
-            const matchesMaterial = selectedMaterial === "all" || ocarina.material === selectedMaterial;
+            const matchesMake = selectedMake === "All" || ocarina.make === selectedMake;
+            const matchesDate = selectedDate === "All" || ocarina.date === selectedDate;
+            const matchesCountry = selectedCountry === "All" || ocarina.country === selectedCountry;
+            const matchesMaterial = selectedMaterial === "All" || ocarina.material === selectedMaterial;
 
             if (matchesMake && matchesDate && matchesCountry && matchesMaterial) {
                 const ocarinaCard = document.createElement("div");
