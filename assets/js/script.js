@@ -45,7 +45,7 @@ window.addEventListener("load", () => {
                 ocarinaCard.classList.add("ocarina-card");
 
                 ocarinaCard.innerHTML = `
-                    <div class="img-space" style="background-image: url('${ocarina.images[0]}'); background-size: contain;"></div>
+                    <div class="img-space" style="background-image: url('${ocarina.images[0]}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
                     <br>
                     <p>
                         <i class="fa-solid fa-hand" title="Make or Origin"></i>
@@ -88,7 +88,7 @@ window.addEventListener("load", () => {
 
                 let gallery = "";
                 for (let image of ocarina.images) {
-                    gallery += `<div style="background-image: url('${image}'); background-size: contain;"></div>`;
+                    gallery += `<div style="background-image: url('${image}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>`;
                 }
 
                 details.innerHTML = `
@@ -99,23 +99,28 @@ window.addEventListener("load", () => {
                     </div>
 
                     <br><br>
-                    <p>
-                        <i class="fa-solid fa-hand" title="Make or Origin"></i>
-                        ${ocarina.make}
-                    </p>
-                    <p>
-                        <i class="fa-solid fa-timeline" title="Date"></i>
-                        ${ocarina.date}
-                    </p>
-                    <p>
-                        <i class="fa-solid fa-earth-americas" title="Country"></i>
-                        ${ocarina.country}
-                    </p>
-                    <p>
-                        <i class="fa-solid fa-cube" title="Material"></i>
-                        ${ocarina.material}
-                    </p>
-                    <p>${ocarina.description}</p>
+                    <div class="info-container">
+                        <div class="info-stats">
+                            <p>
+                                <i class="fa-solid fa-hand" title="Make or Origin"></i>
+                                ${ocarina.make}
+                            </p>
+                            <p>
+                                <i class="fa-solid fa-timeline" title="Date"></i>
+                                ${ocarina.date}
+                            </p>
+                            <p>
+                                <i class="fa-solid fa-earth-americas" title="Country"></i>
+                                ${ocarina.country}
+                            </p>
+                            <p>
+                                <i class="fa-solid fa-cube" title="Material"></i>
+                                ${ocarina.material}
+                            </p>
+                        </div>
+                        <br>
+                        <p>${ocarina.description}</p>
+                    </div>
                 `;
 
                 const slider = document.querySelector(".slider");
