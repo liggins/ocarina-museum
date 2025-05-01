@@ -76,6 +76,82 @@ window.addEventListener("load", () => {
     }
 
 
+    function populateModal(ocarina) {
+        let gallery = "";
+        for (let image of ocarina.images) {
+            gallery += `<div style="background-image: url('${image}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>`;
+        }
+
+        details.innerHTML = `
+            <div class="carousel-container">
+                <button class="nav-button left">&lt;</button>
+                <div class="slider">${gallery}</div>
+                <button class="nav-button right">&gt;</button>
+            </div>
+
+            <br><br>
+            <div class="info-container">
+                <div class="info-stats">
+                    <p>
+                        <i class="fa-solid fa-hand" title="Make or Origin"></i>
+                        ${ocarina.make}
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-timeline" title="Date"></i>
+                        ${ocarina.date}
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-earth-americas" title="Country"></i>
+                        ${ocarina.country}
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-cube" title="Material"></i>
+                        ${ocarina.material}
+                    </p>
+                </div>
+                <br>
+                <p>${ocarina.description}</p>
+                <br>
+                <p>${ocarina.size}</p>
+            </div>
+        `;
+
+        const slider = document.querySelector(".slider");
+
+        document.querySelector(".left").addEventListener("click", () => {
+            slider.scrollBy({ left: -slider.clientWidth, behavior: "smooth" });
+        });
+        document.querySelector(".right").addEventListener("click", () => {
+            slider.scrollBy({ left: slider.clientWidth, behavior: "smooth" });
+        });
+
+        ocarinaModal.style.display = "block";
+
+        const leftButton = document.querySelector(".left");
+        const rightButton = document.querySelector(".right");
+        function updateButtons() {
+            leftButton.style.visibility = slider.scrollLeft === 0 ? "hidden" : "visible";
+            rightButton.style.visibility =
+                slider.scrollLeft + slider.clientWidth >= slider.scrollWidth ? "hidden" : "visible";
+        }
+
+        // Initialize button visibility on page load
+        updateButtons();
+
+        // Check position after scrolling
+        slider.addEventListener("scroll", updateButtons);
+
+        const segueLinks = document.querySelectorAll(".segue");
+        segueLinks.forEach(link => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const idNumber = link.textContent.slice(1);
+                switchModal(idNumber);
+            });
+        });
+    }
+
+
     /**
      * ---
     */
@@ -86,76 +162,18 @@ window.addEventListener("load", () => {
         for (let moreButton of moreButtons) {
             moreButton.addEventListener("click", (event) => {
                 let ocarina = ocarinas[event.target.dataset.index];
-
-                let gallery = "";
-                for (let image of ocarina.images) {
-                    gallery += `<div style="background-image: url('${image}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>`;
-                }
-
-                details.innerHTML = `
-                    <div class="carousel-container">
-                        <button class="nav-button left">&lt;</button>
-                        <div class="slider">${gallery}</div>
-                        <button class="nav-button right">&gt;</button>
-                    </div>
-
-                    <br><br>
-                    <div class="info-container">
-                        <div class="info-stats">
-                            <p>
-                                <i class="fa-solid fa-hand" title="Make or Origin"></i>
-                                ${ocarina.make}
-                            </p>
-                            <p>
-                                <i class="fa-solid fa-timeline" title="Date"></i>
-                                ${ocarina.date}
-                            </p>
-                            <p>
-                                <i class="fa-solid fa-earth-americas" title="Country"></i>
-                                ${ocarina.country}
-                            </p>
-                            <p>
-                                <i class="fa-solid fa-cube" title="Material"></i>
-                                ${ocarina.material}
-                            </p>
-                        </div>
-                        <br>
-                        <p>${ocarina.description}</p>
-                        <br>
-                        <p>${ocarina.size}</p>
-                    </div>
-                `;
-
-                const slider = document.querySelector(".slider");
-
-                document.querySelector(".left").addEventListener("click", () => {
-                    slider.scrollBy({ left: -slider.clientWidth, behavior: "smooth" });
-                });
-                document.querySelector(".right").addEventListener("click", () => {
-                    slider.scrollBy({ left: slider.clientWidth, behavior: "smooth" });
-                });
-
-                ocarinaModal.style.display = "block";
-
-                const leftButton = document.querySelector(".left");
-                const rightButton = document.querySelector(".right");
-                function updateButtons() {
-                    leftButton.style.visibility = slider.scrollLeft === 0 ? "hidden" : "visible";
-                    rightButton.style.visibility =
-                        slider.scrollLeft + slider.clientWidth >= slider.scrollWidth ? "hidden" : "visible";
-                }
-
-                // Initialize button visibility on page load
-                updateButtons();
-
-                // Check position after scrolling
-                slider.addEventListener("scroll", updateButtons);
+                populateModal(ocarina);
             });
         }
 
         closeButton.addEventListener("click", () => { ocarinaModal.style.display = "none"; });
     }
 
+
+    function switchModal(idNumber) {
+        const ocarina = ocarinas.find(o => o.id === parseInt(idNumber));
+        if (ocarina) populateModal(ocarina);
+    }
 
     // `renderOcarinas()` called upon page load and after any dropdown selections
 

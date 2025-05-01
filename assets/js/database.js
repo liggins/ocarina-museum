@@ -3,7 +3,7 @@ const ocarinas = [
         id: 10023, make: "Pre-Columbian", date: "Pre-1500 AD", country: "Costa Rica", material: "Ceramic",
         description: `This pre-Columbian ${
             '<span class="tooltip">composite zoomorph <span class="tooltiptext">fusion of two animal forms</span> </span>'
-        } of a fox and a turtle, like the little bird (${'<a href="#">#10028</a>'}), is around 2,000 years old and comes from the Nicoya peninsula on the Pacific coast of Costa Rica, from the Catalina phase of the Chorotega culture. Both vessel flutes have 4 equal-size finger holes offering five different fingering combinations and, this case, a range of just over a 5th, from D flat to A. Both are exquisitely made to produce a wonderfully pure sound. ${'<br><br>'} Players 2,000 years ago are unlikely to have played tunes as we would, but probably ${
+        } of a fox and a turtle, like the little bird (${'<a href="#" class="segue">#10028</a>'}), is around 2,000 years old and comes from the Nicoya peninsula on the Pacific coast of Costa Rica, from the Catalina phase of the Chorotega culture. Both vessel flutes have 4 equal-size finger holes offering five different fingering combinations and, this case, a range of just over a 5th, from D flat to A. Both are exquisitely made to produce a wonderfully pure sound. ${'<br><br>'} Players 2,000 years ago are unlikely to have played tunes as we would, but probably ${
             '<span class="tooltip">glissandoed <span class="tooltiptext">continuously slid between two notes</span> </span>'
         } and flutter-tongued to bring their creations to life, making them sing and purr like the creatures they depict.`,
         size: "68 x 38 x 50; 59 gm.",
