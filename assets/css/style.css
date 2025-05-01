@@ -113,12 +113,12 @@ footer {
     padding-top: 20px;
 }
 
-footer > a {
+footer>a {
     color: black;
     margin: 20px;
 }
 
-footer > a:hover {
+footer>a:hover {
     color: Blue;
 }
 
@@ -169,6 +169,34 @@ footer > a:hover {
 }
 
 
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
 @media screen and (max-width: 500px) {
     .carousel-container {
         max-width: 70vw;
@@ -178,6 +206,7 @@ footer > a:hover {
         height: 25px;
         width: 25px;
     }
+
     .slider {
         width: 150px;
     }
