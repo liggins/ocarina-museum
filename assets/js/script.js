@@ -47,6 +47,7 @@ window.addEventListener("load", () => {
                 ocarinaCard.innerHTML = `
                     <div class="img-space" style="background-image: url('${ocarina.images[0]}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
                     <br>
+                    <p style="text-align: right; margin-bottom: 10px;">#${ocarina.id}</p>
                     <p>
                         <i class="fa-solid fa-hand" title="Make or Origin"></i>
                         ${ocarina.make}
@@ -64,7 +65,7 @@ window.addEventListener("load", () => {
                         ${ocarina.material}
                     </p>
                     <br>
-                    <p class="read-more" data-index="${index}"> Read more >> </p>
+                    <p class="read-more" data-index="${index}" style="text-align: center;"> Read more >> </p>
                 `;
 
                 ocarinaRiver.appendChild(ocarinaCard);
@@ -120,6 +121,8 @@ window.addEventListener("load", () => {
                         </div>
                         <br>
                         <p>${ocarina.description}</p>
+                        <br>
+                        <p>${ocarina.size}</p>
                     </div>
                 `;
 
